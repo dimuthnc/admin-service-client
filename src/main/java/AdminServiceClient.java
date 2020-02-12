@@ -49,14 +49,14 @@ public class AdminServiceClient {
 
         if (authenticationAdminStub.login(userName, password, "localhost")) {
             System.out.println("Login Successful");
+            ServiceContext serviceContext = authenticationAdminStub.
+                    _getServiceClient().getLastOperationContext().getServiceContext();
 
-
+            sessionCookie = (String) serviceContext.getProperty(HTTPConstants.COOKIE_STRING);
+            System.out.println(sessionCookie);
         }
 
-        ServiceContext serviceContext = authenticationAdminStub.
-                _getServiceClient().getLastOperationContext().getServiceContext();
-        System.out.println(sessionCookie);
-        sessionCookie = (String) serviceContext.getProperty(HTTPConstants.COOKIE_STRING);
+
 
         return sessionCookie;
     }

@@ -17,7 +17,7 @@ public class Run {
         
         try {
             AdminServiceClient adminServiceClient = new AdminServiceClient(ClientConstants.TENANT_DOMAIN2);
-            String sessionCookie = adminServiceClient.authenticate(ClientConstants.SUPER_ADMIN,
+            String sessionCookie = adminServiceClient.authenticate(ClientConstants.TENANT_ADMIN_2,
                     ClientConstants.ADMIN_PASSWORD);
             IdentityApplicationManagementServiceStub identityApplicationManagementServiceStub =
                     adminServiceClient.getIdentityApplicationManagementServiceStub();
